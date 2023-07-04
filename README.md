@@ -2,6 +2,21 @@
 
 This project implements the approach described in the article "DetectGPT: Zero-Shot Machine-Generated Text Detection using Probability Curvature" before official code release. It aims to detect machine-generated text by analyzing the probability distribution of predicted tokens.
 
+## Dataset
+
+fragments.tsv: This file contains fragments from Ranxigs diploma works. Each line represents a single fragment.
+
+human_written_fragments.tsv: This file contains first 100 fragments from fragments.tsv. These fragments are manually written and serve as a reference for human-written text.
+
+machine_generation_prompt_fragments.tsv: This file contains second 100 fragments from fragments.tsv. However, only the first 30 words from each fragment are included. These fragments are used as prompts for the ChatGPT model to generate machine-generated text.
+
+ChatGpt.tsv: This file contains 100 fragments of machine-generated text. These fragments were generated using the ChatGPT model with the prompts provided in machine_generation_prompt_fragments.tsv.
+
+Please ensure that the dataset files are properly formatted and located in the dataset directory before running the DetectGPT project.
+
+## Files
+
+
 The project consists of the following three files:
 
 1. `main.py`: This file contains the main logic of the DetectGPT project. It takes command-line arguments, reads a dataset file, generates perturbations of the input text, computes scores based on language models, and writes the results to a CSV file.
